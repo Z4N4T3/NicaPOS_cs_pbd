@@ -43,7 +43,7 @@ namespace AccessoDatos.database
             _parametros.Columns.Add("TipoDato");
             _parametros.Columns.Add("Valor");
 
-            NombreDB = string.Empty;
+            NombreDB = "DB_NicaPOS";
         }
         #endregion
 
@@ -51,7 +51,14 @@ namespace AccessoDatos.database
         #region metodos privados
         private void connectionDB(ref ClsDatabase objDB)
         {
-
+            switch (objDB.nombreDB)
+            {
+                case "DB_NicaPOS":
+                    objDB.ObjSqlConnection = new SqlConnection(Properties.Settings.Default.StringConnection_DB_NicaPOS);
+                    break;
+                default:
+                    break;
+            }
         }
         private void validateConnectionDB(ref ClsDatabase objDB)
         {
