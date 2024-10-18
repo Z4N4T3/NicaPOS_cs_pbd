@@ -35,6 +35,47 @@ namespace AccessoDatos.database
         #endregion
 
 
+        #region constructores
+        public ClsDatabase()
+        {
+            _parametros = new DataTable("SP_parametros");
+            _parametros.Columns.Add("Nombre");
+            _parametros.Columns.Add("TipoDato");
+            _parametros.Columns.Add("Valor");
 
+            NombreDB = string.Empty;
+        }
+        #endregion
+
+
+        #region metodos privados
+        private void connectionDB(ref ClsDatabase objDB)
+        {
+
+        }
+        private void validateConnectionDB(ref ClsDatabase objDB)
+        {
+
+        }
+        private void addParameters(ref ClsDatabase objDB)
+        {
+
+        }
+
+        private void PrepareConnectionDB(ref ClsDatabase objDB)
+        {
+
+        }
+
+        private void ExecDataAdapter(ref ClsDatabase objDB)
+        {
+
+        }
+        private void ExecCommand(ref ClsDatabase objDB)
+        {
+
+        }
+
+        #endregion
     }
 }
