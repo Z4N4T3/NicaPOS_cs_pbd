@@ -51,10 +51,11 @@ namespace AccessoDatos.database
         #region metodos privados
         private void connectionDB(ref ClsDatabase objDB)
         {
+            // permite la conexion de multiples BD
             switch (objDB.nombreDB)
             {
                 case "DB_NicaPOS":
-                    objDB.ObjSqlConnection = new SqlConnection(Properties.Settings.Default.StringConnection_DB_NicaPOS);
+                    objDB.ObjSqlConnection = new SqlConnection(Properties.Settings.Default.StringConnection_DB_NicaPOS); 
                     break;
                 default:
                     break;
@@ -62,7 +63,17 @@ namespace AccessoDatos.database
         }
         private void validateConnectionDB(ref ClsDatabase objDB)
         {
+            if (objDB.ObjSqlConnection.State == ConnectionState.Closed)
+            {
+                objDB.ObjSqlConnection.Open();
 
+            }
+            else
+            {
+                objDB.ObjSqlConnection.Close(); // cierra la conexion 
+                objDB.ObjSqlConnection.Close(); // quita la conexion de memoria
+
+            }
         }
         private void addParameters(ref ClsDatabase objDB)
         {
